@@ -1,19 +1,27 @@
-const { app, BrowserWindow } = require('electron');
-const isDev = require('electron-is-dev');
+const { app } = require('electron');
 const path = require('path');
+const {
+  show: showMainWindow,
+  close: closeMainWindow,
+  create: createMainWindow,
+} = require('./windows/main');
 
-let win;
-app.on('ready', () => {
-  win = new BrowserWindow({
-    width: 600,
-    height: 300,
-    webPreferences: {
-      nodeIntegration: true,
-    },
+const gotTheLock = app.requestSingleInstanceLock();
+
+if (!gotTheLock) {
+  app.quit();
+} else {
+  app.on('second-instance', () => {
+    showMainWindow();
   });
-  if (isDev) {
-    win.loadURL('http://localhost:3000');
-  } else {
-    win.loadFile(path.resolve(__dirname, '../renderer/pages/main/index.html'));
-  }
-});
+  app.on('ready', () => {
+    createMainWindow();
+    require('./taryAndMenu');
+  });
+  app.on('before-quit', () => {
+    closeMainWindow();
+  });
+  app.on('activate', () => {
+    showMainWindow();
+  });
+}

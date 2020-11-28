@@ -72,6 +72,11 @@ abbrev@1:
   resolved "https://registry.npm.taobao.org/abbrev/download/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
   integrity sha1-+PLIh60Qv2f2NPAFtph/7TF5qsg=
 
+about-window@^1.13.4:
+  version "1.13.4"
+  resolved "https://registry.npm.taobao.org/about-window/download/about-window-1.13.4.tgz#cedfd0153c4b8b54832acae6dae695e06f27f4b4"
+  integrity sha1-zt/QFTxLi1SDKsrm2uaV4G8n9LQ=
+
 ajv@^6.12.3:
   version "6.12.6"
   resolved "https://registry.npm.taobao.org/ajv/download/ajv-6.12.6.tgz?cache=0&sync_timestamp=1606043299362&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fajv%2Fdownload%2Fajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
