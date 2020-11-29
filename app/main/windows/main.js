@@ -31,7 +31,8 @@ function create() {
   }
 }
 
-function send() {
+// 主进程 向 渲染进程发送
+function send(channel, ...args) {
   win.webContents.send(channel, ...args);
 }
 

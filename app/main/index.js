@@ -1,5 +1,6 @@
 const { app } = require('electron');
 const path = require('path');
+const handleIPC = require('./ipc');
 const {
   show: showMainWindow,
   close: closeMainWindow,
@@ -16,6 +17,7 @@ if (!gotTheLock) {
   });
   app.on('ready', () => {
     createMainWindow();
+    handleIPC();
     require('./taryAndMenu');
   });
   app.on('before-quit', () => {
